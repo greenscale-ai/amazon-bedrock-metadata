@@ -1,0 +1,34 @@
+{
+  "timestamp":"2024-03-05T20:35:42Z",
+  "accountId":"893487256304",
+  "identity":{
+    "arn":"arn:aws:sts::893487256304:assumed-role/AmazonSageMaker-ExecutionRole-20240210T141891/SageMaker"
+  },
+  "identityTags":[
+    {
+      "key":"Application",
+      "value":"Lunar"
+    },
+    {
+      "key":"Project",
+      "value":"Greenscale AI"
+    },
+    {
+      "key":"Env",
+      "value":"Production"
+    }
+  ],
+  "region":"us-west-2",
+  "requestId":"27451c8c-bb7e-43c0-9c9e-3d964e3a6c6e",
+  "operation":"InvokeModelWithResponseStream",
+  "modelId":"amazon.titan-text-lite-v1",
+  "provider":"Amazon",
+  "inputContentType":"application/json",
+  "outputContentType":"application/json",
+  "inputTokenCount":20,
+  "outputTokenCount":354,
+  "inputTokenCostUSD":0.000006,
+  "outputTokenCostUSD":0.0001416,
+  "invocationLatency":8129,
+  "firstByteLatency":2154
+}

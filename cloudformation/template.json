@@ -1,0 +1,160 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Create lambda function to generate metadata related to cost and carbon footprint from the invocation logs of Amazon Bedrock models",
+  "Parameters": {
+    "BedrockModelInvocationLogsBucketName": {
+      "Description": "The Amazon S3 bucket name for Bedrock model invocation logs",
+      "MinLength": "1",
+      "Type": "String"
+    },
+    "BedrockModelInvocationLogsBucketRegion": {
+      "Description": "The Amazon S3 bucket region for Bedrock model invocation logs",
+      "MinLength": "1",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "BedrockModelInvocationMetadataBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private",
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Id": "ExpireOldObjects",
+              "Status": "Enabled",
+              "ExpirationInDays": 200
+            }
+          ]
+        }
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "DependsOn": "BedrockModelInvocationMetadataBucket",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": ["lambda.amazonaws.com"]
+              },
+              "Action": ["sts:AssumeRole"]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "LambdaExecutionPolicy",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": "arn:aws:logs:*:*:*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetObject",
+                    "s3:ListBucket"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:s3:::${BedrockModelInvocationLogsBucketName}/*"
+                    },
+                    {
+                      "Fn::Sub": "arn:aws:s3:::${BedrockModelInvocationLogsBucketName}"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:PutObject"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:s3:::${BedrockModelInvocationMetadataBucket}/*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "iam:List*Tags",
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "LambdaFunctionName": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "main",
+        "Runtime": "provided.al2023",
+        "Role": {"Fn::GetAtt": ["LambdaExecutionRole", "Arn"]},
+        "Description": "Lambda function to generate metadata related to cost and carbon footprint from the invocation logs of Amazon Bedrock models",
+        "Code": {
+          "S3Bucket": "greenscale-ai-public",
+          "S3Key": "amazon-bedrock-metadata/amazon-bedrock-metadata-1.0.zip"
+        },
+        "Architectures": ["arm64"],
+        "Environment": {
+          "Variables": {
+            "AWS_ACCOUNT_ID": {"Ref": "AWS::AccountId"},
+            "METADATA_LOGS_OUTPUT_BUCKET": {"Ref": "BedrockModelInvocationMetadataBucket"},
+            "METADATA_LOGS_OUTPUT_BUCKET_REGION": {"Ref": "AWS::Region"},
+            "MODEL_INVOCATION_LOGS_INPUT_BUCKET": {"Ref": "BedrockModelInvocationLogsBucketName"},
+            "MODEL_INVOCATION_LOGS_INPUT_BUCKET_REGION": {"Ref": "BedrockModelInvocationLogsBucketRegion"},
+            "PICK_LAST_HOUR": "true"
+          }
+        }
+      }
+    },
+    "LambdaLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": { "Fn::Join": ["", ["/aws/lambda/", {"Ref": "LambdaFunctionName"}]] },
+        "RetentionInDays": 14
+      }
+    },
+    "HourlyEventRule": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Trigger Lambda function hourly",
+        "ScheduleExpression": "rate(1 hour)",
+        "Targets": [
+          {
+            "Arn": {"Fn::GetAtt": ["LambdaFunctionName", "Arn"]},
+            "Id": "BedrockModelInvocationMetadata"
+          }
+        ]
+      }
+    },
+    "LambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {"Ref": "LambdaFunctionName"},
+        "Action": "lambda:InvokeFunction",
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {"Fn::GetAtt": ["HourlyEventRule", "Arn"]}
+      }
+    }
+  }
+}

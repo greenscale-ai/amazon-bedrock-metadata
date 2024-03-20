@@ -1,0 +1,32 @@
+{
+  "schemaType":"ModelInvocationLog",
+  "schemaVersion":"1.0",
+  "timestamp":"2024-03-05T20:56:49Z",
+  "accountId":"893487256304",
+  "identity":{
+    "arn":"arn:aws:iam::893487256304:user/acme-user-bravo"
+  },
+  "region":"us-west-2",
+  "requestId":"7329a13d-94f6-4723-a75b-9cd8c5690664",
+  "operation":"InvokeModel",
+  "modelId":"meta.llama2-13b-chat-v1",
+  "input":{
+    "inputContentType":"application/json",
+    "inputBodyJson":{
+      "prompt":"A test prompt",
+      "max_gen_len":512,
+      "temperature":0.5
+    },
+    "inputTokenCount":4
+  },
+  "output":{
+    "outputContentType":"application/json",
+    "outputBodyJson":{
+      "generation":" for a short story\n\n\"The Last Memory\"\n\nIn a world where memories can be implanted, edited, and even stolen, the concept of identity has become fluid and malleable. People can change their memories to suit their desires, erasing painful experiences and augmenting happy ones. But what happens when the last memory of a person's life is taken away?\n\nPrompt: Write a short story that explores the themes of identity, memory, and the human condition. Your story should be set in a world where memories can be manipulated, and it should follow a character who has had their last memory taken away. How does this affect their sense of self, and what do they do to reclaim their identity?",
+      "prompt_token_count":4,
+      "generation_token_count":160,
+      "stop_reason":"stop"
+    },
+    "outputTokenCount":160
+  }
+}

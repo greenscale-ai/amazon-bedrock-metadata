@@ -1,0 +1,82 @@
+{
+  "schemaType":"ModelInvocationLog",
+  "schemaVersion":"1.0",
+  "timestamp":"2024-03-05T20:35:42Z",
+  "accountId":"893487256304",
+  "identity":{
+    "arn":"arn:aws:sts::893487256304:assumed-role/AmazonSageMaker-ExecutionRole-20240210T141891/SageMaker"
+  },
+  "region":"us-west-2",
+  "requestId":"27451c8c-bb7e-43c0-9c9e-3d964e3a6c6e",
+  "operation":"InvokeModelWithResponseStream",
+  "modelId":"amazon.titan-text-lite-v1",
+  "input":{
+    "inputContentType":"application/json",
+    "inputBodyJson":{
+      "inputText":"Command: Write me a blog about making strong business decisions as a leader.\n\nBlog:\n",
+      "textGenerationConfig":{
+        "maxTokenCount":512,
+        "stopSequences":[
+
+        ],
+        "temperature":0.1,
+        "topP":0.9
+      }
+    },
+    "inputTokenCount":20
+  },
+  "output":{
+    "outputContentType":"application/json",
+    "outputBodyJson":[
+      {
+        "outputText":"Making strong business decisions as a leader is crucial for the success and growth of your organization. In this blog, we will explore some key principles and strategies that can help you make better decisions as a leader.\n\nFirst and foremost, ",
+        "index":0,
+        "totalOutputTextTokenCount":null,
+        "completionReason":null,
+        "inputTextTokenCount":20
+      },
+      {
+        "outputText":"effective decision-making requires a clear understanding of your organization's goals and objectives. You need to have a clear vision of where you want to take your business and what you need to do to get there. This means conducting thorough market research, analyzing your competitors, and understanding your customer's needs and preferences.\n\nOnce you have a clear und",
+        "index":0,
+        "totalOutputTextTokenCount":null,
+        "completionReason":null,
+        "inputTextTokenCount":null
+      },
+      {
+        "outputText":"erstanding of your goals, you need to gather all relevant information and data that can help you make informed decisions. This includes analyzing financial data, customer feedback, market trends, and any other relevant data points.\n\nIn addition to gathering information, effective decision-making also requires effective communication. You need to be able to communicate your decision-makin",
+        "index":0,
+        "totalOutputTextTokenCount":null,
+        "completionReason":null,
+        "inputTextTokenCount":null
+      },
+      {
+        "outputText":"g process to your team and stakeholders, and ensure that everyone is aligned with your goals and understands their roles in achieving them.\n\nAnother key principle of effective decision-making is to consider all available options and weigh the pros and cons of each one. This means conducting thorough analysis and testing different scenarios to identify the bes",
+        "index":0,
+        "totalOutputTextTokenCount":null,
+        "completionReason":null,
+        "inputTextTokenCount":null
+      },
+      {
+        "outputText":"t course of action.\n\nFinally, effective decision-making requires the ability to adapt and learn from your mistakes. It's important to be open to feedback and willing to adjust your strategies and decisions as needed.\n\nIn conclusion, making strong business decisions as a leader requires a combination of clear goals, effective information gathering, effective communication, thorough analys",
+        "index":0,
+        "totalOutputTextTokenCount":null,
+        "completionReason":null,
+        "inputTextTokenCount":null
+      },
+      {
+        "outputText":"is, and the ability to adapt and learn from your mistakes. By following these principles, you can improve your decision-making skills and help your organization achieve its goals and objectives.",
+        "index":0,
+        "totalOutputTextTokenCount":354,
+        "completionReason":"FINISH",
+        "inputTextTokenCount":null,
+        "amazon-bedrock-invocationMetrics":{
+          "inputTokenCount":20,
+          "outputTokenCount":354,
+          "invocationLatency":8129,
+          "firstByteLatency":2154
+        }
+      }
+    ],
+    "outputTokenCount":354
+  }
+}

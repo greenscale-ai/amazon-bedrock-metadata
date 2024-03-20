@@ -1,0 +1,32 @@
+{
+  "timestamp":"2024-03-05T20:56:49Z",
+  "accountId":"893487256304",
+  "identity":{
+    "arn":"arn:aws:sts::893487256304:assumed-role/AmazonSageMaker-ExecutionRole-20240210T141891/SageMaker"
+  },
+  "identityTags": [
+    {
+      "key": "Application",
+      "value": "Lunar"
+    },
+    {
+      "key": "Department",
+      "value": "Accounting"
+    },
+    {
+      "key": "Env",
+      "value": "Production"
+    }
+  ],
+  "region":"us-west-2",
+  "requestId":"7329a13d-94f6-4723-a75b-9cd8c5690664",
+  "operation":"InvokeModel",
+  "modelId":"meta.llama2-13b-chat-v1",
+  "provider": "Meta",
+  "inputContentType":"application/json",
+  "outputContentType":"application/json",
+  "inputTokenCount":4,
+  "outputTokenCount":160,
+  "inputTokenCostUSD": 0.000003,
+  "outputTokenCostUSD": 0.00016
+}
