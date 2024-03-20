@@ -15,7 +15,7 @@ Amazon S3 buckets with [Amazon Bedrock model invocation logs](https://docs.aws.a
 [![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=AmazonBedrockMetadata&templateURL=https://greenscale-ai-public.s3.amazonaws.com/amazon-bedrock-metadata/template.json)
 
 ## Usage
-Once the setup is complete, the Amazon Bedrock Metadata will automatically process new invocation logs as they are generated. You can then use Amazon Athena to query the metadata and AWS Quicksight for in-depth analysis and visualization.
+Once the setup is complete, the Amazon Bedrock Metadata will automatically process new invocation logs as they are generated. You can then use Amazon Athena to query the metadata and Amazon Quicksight for in-depth analysis and visualization.
 
 ## License
 This project is open-source and available under the MIT License.
