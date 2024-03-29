@@ -14,6 +14,8 @@ Amazon S3 buckets with [Amazon Bedrock model invocation logs](https://docs.aws.a
 ## Quick Deploy
 [![Launch Stack](https://greenscale-public.s3.amazonaws.com/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=AmazonBedrockMetadata&templateURL=https://greenscale-ai-public.s3.amazonaws.com/amazon-bedrock-metadata/template.json)
 
+Quick deploy will create resources in the `us-east-1` region and can support model invocation logs for all supported Amazon Bedrock regions. 
+
 ## Usage
 Once the setup is complete, the Amazon Bedrock Metadata will automatically process new invocation logs as they are generated. You can then use Amazon Athena to query the metadata and Amazon Quicksight for in-depth analysis and visualization.
 
