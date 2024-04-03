@@ -31,7 +31,11 @@ func (m *MetadataGenerator) GenerateModelInvocationLogMetadata(modelInvocationLo
 		modelId = strings.Split(modelIdARN.Resource, "/")[1]
 		modelId = strings.Split(modelId, ":")[0]
 	} else {
-		modelId = modelInvocationLog.ModelID
+		if strings.Contains(modelInvocationLog.ModelID, ":") {
+			modelId = strings.Split(modelInvocationLog.ModelID, ":")[0]
+		} else {
+			modelId = modelInvocationLog.ModelID
+		}
 	}
 
 	modelInvocationLogMetadata = &InvocationLogMetadata{

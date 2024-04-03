@@ -9,7 +9,7 @@
   "region":"us-west-2",
   "requestId":"27451c8c-bb7e-43c0-9c9e-3d964e3a6c6e",
   "operation":"InvokeModelWithResponseStream",
-  "modelId":"amazon.titan-text-lite-v1",
+  "modelId":"mistral.mistral-large-2402-v1:0",
   "input":{
     "inputContentType":"application/json",
     "inputBodyJson":{

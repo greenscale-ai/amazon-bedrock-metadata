@@ -280,5 +280,21 @@
         "output_cost_per_1k_tokens": 0.0007
       }
     ]
+  },
+  "mistral.mistral-large-2402-v1":{
+    "name":"Mistral Large",
+    "provider":"Mistral AI",
+    "cost": [
+      {
+        "region": "us-east-1",
+        "input_cost_per_1k_tokens": 0.008,
+        "output_cost_per_1k_tokens": 0.024
+      },
+      {
+        "region": "us-west-2",
+        "input_cost_per_1k_tokens": 0.008,
+        "output_cost_per_1k_tokens": 0.024
+      }
+    ]
   }
 }
