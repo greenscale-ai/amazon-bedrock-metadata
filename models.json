@@ -151,6 +151,17 @@
       }
     ]
   },
+  "anthropic.claude-3-opus-20240229-v1":{
+    "name":"Claude 3 Opus",
+    "provider":"Anthropic",
+    "cost": [
+      {
+        "region": "us-west-2",
+        "input_cost_per_1k_tokens": 0.01500,
+        "output_cost_per_1k_tokens": 0.07500
+      }
+    ]
+  },
   "anthropic.claude-3-sonnet-20240229-v1":{
     "name":"Claude 3 Sonnet",
     "provider":"Anthropic",
@@ -162,6 +173,11 @@
       },
       {
         "region": "us-west-2",
+        "input_cost_per_1k_tokens": 0.00300,
+        "output_cost_per_1k_tokens": 0.01500
+      },
+      {
+        "region": "eu-west-3",
         "input_cost_per_1k_tokens": 0.00300,
         "output_cost_per_1k_tokens": 0.01500
       }
@@ -178,6 +194,11 @@
       },
       {
         "region": "us-west-2",
+        "input_cost_per_1k_tokens": 0.00025,
+        "output_cost_per_1k_tokens": 0.00125
+      },
+      {
+        "region": "eu-west-3",
         "input_cost_per_1k_tokens": 0.00025,
         "output_cost_per_1k_tokens": 0.00125
       }
@@ -262,6 +283,16 @@
         "region": "us-west-2",
         "input_cost_per_1k_tokens": 0.00015,
         "output_cost_per_1k_tokens": 0.0002
+      },
+      {
+        "region": "ap-southeast-2",
+        "input_cost_per_1k_tokens": 0.0002,
+        "output_cost_per_1k_tokens": 0.00026
+      },
+      {
+        "region": "eu-west-3",
+        "input_cost_per_1k_tokens": 0.0002,
+        "output_cost_per_1k_tokens": 0.00026
       }
     ]
   },
@@ -278,6 +309,16 @@
         "region": "us-west-2",
         "input_cost_per_1k_tokens": 0.00045,
         "output_cost_per_1k_tokens": 0.0007
+      },
+      {
+        "region": "ap-southeast-2",
+        "input_cost_per_1k_tokens": 0.00059,
+        "output_cost_per_1k_tokens": 0.00091
+      },
+      {
+        "region": "eu-west-3",
+        "input_cost_per_1k_tokens": 0.00059,
+        "output_cost_per_1k_tokens": 0.00091
       }
     ]
   },
@@ -294,6 +335,16 @@
         "region": "us-west-2",
         "input_cost_per_1k_tokens": 0.008,
         "output_cost_per_1k_tokens": 0.024
+      },
+      {
+        "region": "ap-southeast-2",
+        "input_cost_per_1k_tokens": 0.0104,
+        "output_cost_per_1k_tokens": 0.0312
+      },
+      {
+        "region": "eu-west-3",
+        "input_cost_per_1k_tokens": 0.0104,
+        "output_cost_per_1k_tokens": 0.0312
       }
     ]
   }
