@@ -270,6 +270,28 @@
       }
     ]
   },
+  "meta.llama3-8b-instruct-v1":{
+    "name":"Llama 3 Instruct (8B)",
+    "provider":"Meta",
+    "cost": [
+      {
+        "region": "any",
+        "input_cost_per_1k_tokens": 0.0004,
+        "output_cost_per_1k_tokens": 0.0006
+      }
+    ]
+  },
+  "meta.llama3-70b-instruct-v1":{
+    "name":"Llama 3 Instruct (70B)",
+    "provider":"Meta",
+    "cost": [
+      {
+        "region": "any",
+        "input_cost_per_1k_tokens": 0.00265,
+        "output_cost_per_1k_tokens": 0.0035
+      }
+    ]
+  },
   "mistral.mistral-7b-instruct-v0":{
     "name":"Mistral 7B",
     "provider":"Mistral AI",
