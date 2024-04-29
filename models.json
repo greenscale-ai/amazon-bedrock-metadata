@@ -226,6 +226,28 @@
       }
     ]
   },
+  "cohere.command-r-plus-v1":{
+    "name":"Command R+",
+    "provider":"Cohere",
+    "cost": [
+      {
+        "region": "any",
+        "input_cost_per_1k_tokens": 0.0030,
+        "output_cost_per_1k_tokens": 0.0150
+      }
+    ]
+  },
+  "cohere.command-r-v1":{
+    "name":"Command R",
+    "provider":"Cohere",
+    "cost": [
+      {
+        "region": "any",
+        "input_cost_per_1k_tokens": 0.0005,
+        "output_cost_per_1k_tokens": 0.0015
+      }
+    ]
+  },
   "cohere.embed-english-v3":{
     "name":"Embed – English",
     "provider":"Cohere",
