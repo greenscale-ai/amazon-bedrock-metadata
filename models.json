@@ -21,6 +21,17 @@
       }
     ]
   },
+  "amazon.titan-text-premier-v1":{
+    "name":"Titan Text Premier",
+    "provider":"Amazon",
+    "cost": [
+      {
+        "region": "us-east-1",
+        "input_cost_per_1k_tokens": 0.0005,
+        "output_cost_per_1k_tokens": 0.0015
+      }
+    ]
+  },
   "amazon.titan-text-lite-v1":{
     "name":"Titan Text Lite",
     "provider":"Amazon",
@@ -70,6 +81,17 @@
         "region": "us-gov-west-1",
         "input_cost_per_1k_tokens": 0.0008,
         "output_cost_per_1k_tokens": 0.0016
+      }
+    ]
+  },
+  "amazon.titan-embed-text-v2": {
+    "name":"Titan Text Embeddings V2",
+    "provider":"Amazon",
+    "cost": [
+      {
+        "region": "us-east-1",
+        "input_cost_per_1k_tokens": 0.00002,
+        "output_cost_per_1k_tokens": 0
       }
     ]
   },
